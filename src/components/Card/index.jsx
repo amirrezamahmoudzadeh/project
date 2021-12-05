@@ -1,30 +1,15 @@
-import React, {useState } from "react";
-import Card from "./components/Card";
-import Cards from "./data/Cards";
+import React from "react";
+import "./Card.css";
 
-
-function App() {
-  
-  const [cards, setCards] = useState(Cards)
-
-  const selectCardHandler = (id)=>{
-    let cardId = cards.findIndex((card => card.id === id))
-    let selectedCard = {...cards[cardId]}
-    selectedCard.selected= !selectedCard.selected
-
-    let updatedCards = [...cards]
-    updatedCards[cardId]=selectedCard
-    setCards(updatedCards)
-
-  }
-
+function Card({ id, isSelected, onChangeColor }) {
   return (
-    <div className="container">
-      {cards.map((card)=>{
-        return <Card id={card.id} key={card.id} select={card.selected} onChangeColor={selectCardHandler} />
-      })}
-    </div>
+    <div
+      className="card"
+      id={id}
+      onClick={() => onChangeColor(id)}
+      style={{ backgroundColor: isSelected ? "pink" : "skyblue" }}
+    ></div>
   );
 }
 
-export default App;
+export default Card;

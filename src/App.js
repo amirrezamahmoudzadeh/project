@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "./components/Card";
+import Card from "./components/Card/index";
 import Cards from "./data/Cards";
 
 
@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="container">
       {cards.map((card)=>{
-        return <Card id={card.id} key={card.id} select={card.selected} onChangeColor={selectCardHandler} />
+        return <Card id={card.id} key={card.id} isSelected={card.selected} onChangeColor={selectCardHandler} />
       })}
     </div>
   );
