@@ -17,10 +17,6 @@ function App() {
     setCards(updatedCards)
 
   }
-  useEffect(() => {
-    localStorage.setItem("cards" , JSON.stringify(cards))
-  }, [cards])
-
   return (
     <div className="container">
       {cards.map((card)=>{
